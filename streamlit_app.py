@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-# import numpy as np
 import random
 import geopandas as gpd
 from shapely import wkt
@@ -9,7 +8,6 @@ import plotly.graph_objects as go
 
 st.set_page_config(layout="wide")
 st.title('CALL projects')
-# st.markdown('Selezionare i dati e visualizzarli in mappa')
 
 indices = 'data/City_pilots.csv'
 df = pd.read_csv(indices, delimiter=';', encoding='unicode_escape')
@@ -19,8 +17,6 @@ df_filtcol = ['Project',
               # 'City',
               # 'Country',
               ]
-# lanciare la funzione
-# df = filter_dataframe(df, df_filtcol)
 
 user_cat_input = st.multiselect(
     'Select one or many projects',
@@ -41,12 +37,7 @@ gdf = gpd.GeoDataFrame(df, crs='WGS84')
 
 # Select indices to show in map
 nofiltcolmap = df_filtcol+(['Coord'])
-# filtcolmap = df.columns  # np.setdiff1d(list(df), nofiltcolmap)
 filtcolmap = ['Project', 'City', 'Country']
-
-# option = st.selectbox(
-#     'Quale indice vuoi visualizzare in mappa?',
-#     filtcolmap)
 
 option = 'Project'
 
@@ -74,6 +65,13 @@ dfalluvial = pd.read_csv('data/Network_polimi.csv',
 # The order in the list modify the order in the dataframe
 dfA = dfalluvial.loc[:, ['Project', 'Type', 'Name']]  # 'Country',
 dfA = dfA[dfA["Project"].isin(user_cat_input)]
+
+network_input = st.multiselect(
+    'Select network typology',
+    dfA.Type.unique(),
+    default=dfA.Type.unique())
+
+dfA = dfA[dfA["Type"].isin(network_input)]
 # Alias name for columns
 d_alluvial = {"Project": "Project", "Name": "Network", "Type": "Typology"}
 dfA = dfA.rename(columns=d_alluvial)

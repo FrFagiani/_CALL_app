@@ -35,7 +35,7 @@ easyRights;Capeesh (NO);Capeesh;CAPEESH;NO;Private sector;S
 MyNeighborhood | MyCity;CEN GROUP LTD (UK);CEN Group LTD;CEN GROUP LTD;UK;Private sector;S
 ORBIS;CENTRE FOR EUROPEAN POLICY STUDIES (BE);Centre For European Policy Studies;CENTRE FOR EUROPEAN POLICY STUDIES;BE;Research & Academia;S
 ORBIS;CENTRE NATIONAL DE LA RECHERCHE SCIENTIFIQUE CNRS (FR);Centre National De La Recherche Scientifique;CENTRE NATIONAL DE LA RECHERCHE SCIENTIFIQUE CNRS;FR;Research & Academia;S
-easyRights;Christar (ES);Christar;CHRISTAR;ES;Private sector;S
+easyRights;Christar (ES);Christar;CHRISTAR;ES;NGOS;S
 easyRights;Città di Palermo (IT);Città di Palermo;CITTÀ DI PALERMO;IT;Public Institution;S
 MESOC;City of Athens - DAEM (GR);City of Athens - DAEM;CITY OF ATHENS - DAEM;GR;Public Institution;S
 MESOC;City of Cluj Napoca - Cluj Cultural Center (RO);City of Cluj Napoca - Cluj Cultural Center;CITY OF CLUJ NAPOCA - CLUJ CULTURAL CENTER;RO;Public Institution;S
@@ -82,7 +82,7 @@ CLIMABOROUGH;GRENOBLE-ALPES-METROPOLE METRO (FR);Grenoble-Alpes-Metropole Metro;
 CLIMABOROUGH;HELMHOLTZ-ZENTRUM HEREON GMBH (DE);Helmholtz-Zentrum Hereon Gmbh;HELMHOLTZ-ZENTRUM HEREON GMBH;DE;Research & Academia;S
 POLIVISU;HELP SERVICE REMOTE SENSING SRO (CZ);Help Service Remote Sensing SRO;HELP SERVICE REMOTE SENSING SRO;CZ;Private sector;S
 Open4Citizen;I2CAT (ES);I2CAT;I2CAT;ES;Research & Academia;S
-easyRights;IED (EL, CY);IED;IED;EL;Research & Academia;S
+easyRights;IED (EL, CY);IED;IED;EL;Private sector;S
 PLAYTIME;IGP Decaux (IT);IGP Decaux;IGP DECAUX;IT;Private sector;S
 POLIVISU;INNOCONNECT SRO (CZ);Innoconnect Sro;INNOCONNECT SRO;CZ;Private sector;S
 CLIMABOROUGH;INSTITUT MINES-TELECOM (FR);Institut Mines-Telecom;INSTITUT MINES-TELECOM;FR;Research & Academia;S
@@ -160,3 +160,7 @@ POLIVISU;VLAAMSE GEWEST (BE);Vlaamse Gewest;VLAAMSE GEWEST;BE;Public Institution
 DESIGNSCAPES;Worldcunch (FR);Worldcunch;WORLDCUNCH;FR;Private sector;S
 MESOC;Worldcunch (FR);Worldcunch;WORLDCUNCH;FR;Private sector;M
 CLIMABOROUGH;ZUM urbanizem, planiranje, projektiranje d.o.o. (SI);ZUM urbanizem, planiranje;ZUM URBANIZEM, PLANIRANJE, PROJEKTIRANJE D.O.O.;SI;Private sector;S
+AGENDA METROPOLITANA URBANA PER LO SVILUPPO SOSTENIBILE;Milan Metropolitan City (IT);Milan Metropolitan City;MILAN METROPOLITAN CITY;IT;Public Institution;L
+AGENDA METROPOLITANA URBANA PER LO SVILUPPO SOSTENIBILE;SUR LAB - Bocconi University;SUR LAB - Bocconi University;SUR LAB - BOCCONI UNIVERSITY;IT;Research & Academia;S
+AGENDA METROPOLITANA URBANA PER LO SVILUPPO SOSTENIBILE;THE OPEN UNIVERSITY (UK);The Open University;THE OPEN UNIVERSITY;UK;Research & Academia;L
+AGENDA METROPOLITANA URBANA PER LO SVILUPPO SOSTENIBILE;ASViS;ASViS;ASVIS;IT;NGOS;S
