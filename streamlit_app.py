@@ -7,10 +7,22 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 st.set_page_config(layout="wide")
-st.title('CALL projects')
+st.title("Cities in Action for Learning Lab (CALL)")
+st.subheader("Discover CALL's projects, pilots, and network.")
 
-indices = 'data/City_pilots.csv'
-df = pd.read_csv(indices, delimiter=';', encoding='unicode_escape')
+df = pd.read_csv('data/City_pilots.csv',
+                 delimiter=';',
+                 encoding='unicode_escape')
+
+dfalluvial = pd.read_csv('data/Network_polimi.csv',
+                         delimiter=';',
+                         encoding='iso-8859-1')
+dfA = dfalluvial.loc[:, ['Project', 'Type', 'Name']]  # 'Country',
+
+dfP = pd.read_csv('data/Projects.csv',
+                  delimiter=';',
+                  encoding='iso-8859-1',
+                  index_col='Project')
 
 # Columns to filters
 df_filtcol = ['Project',
@@ -25,12 +37,23 @@ user_cat_input = st.multiselect(
 
 df = df[df["Project"].isin(user_cat_input)]
 
+# PILOT MAP --------------------------------------
+
+if len(user_cat_input) == 1:
+    dfP_text = dfP.loc[user_cat_input, :]
+    st.subheader(user_cat_input[0])
+    st.markdown(dfP_text.Complete_name[0])
+
+# ------------------------------------------------
+
 # Select columns to view and to exclude
 dfex_col = df.loc[:, df.columns.isin(df_filtcol)]
 # Count filtered values
 dfcount = str(dfex_col.Project.count())
 # Run in streamlit
 st.subheader('Pilot cities: '+dfcount)
+
+# PILOT MAP --------------------------------------
 
 df['geometry'] = df['Coord'].apply(wkt.loads)
 gdf = gpd.GeoDataFrame(df, crs='WGS84')
@@ -56,14 +79,8 @@ fig.update_layout(mapbox_style="carto-positron")
 
 st.plotly_chart(fig, use_container_width=True)
 
-# ------------------------------------------------
+# ALLUVIAL ---------------------------------------
 
-dfalluvial = pd.read_csv('data/Network_polimi.csv',
-                         delimiter=';',
-                         encoding='iso-8859-1')
-# Select the columns to analyze
-# The order in the list modify the order in the dataframe
-dfA = dfalluvial.loc[:, ['Project', 'Type', 'Name']]  # 'Country',
 dfA = dfA[dfA["Project"].isin(user_cat_input)]
 
 network_input = st.multiselect(
