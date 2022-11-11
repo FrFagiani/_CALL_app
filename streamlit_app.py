@@ -24,6 +24,9 @@ dfP = pd.read_csv('data/Projects.csv',
                   encoding='iso-8859-1',
                   index_col='Project')
 
+dfP['Start_Date'] = pd.to_datetime(dfP['Start_Date'])
+dfP['End_Date'] = pd.to_datetime(dfP['End_Date'])
+
 # Columns to filters
 df_filtcol = ['Project',
               # 'City',
@@ -43,6 +46,24 @@ if len(user_cat_input) == 1:
     dfP_text = dfP.loc[user_cat_input, :]
     st.subheader(user_cat_input[0])
     st.markdown(dfP_text.Complete_name[0])
+
+else:
+    dfP = dfP[dfP.index.isin(user_cat_input)]
+    dfP = dfP.sort_values(by=['Start_Date'], ascending=False)
+    fig = px.timeline(dfP, "Start_Date", "End_Date",
+                      y=dfP.index,
+                      color=dfP.index)
+    fig.update_layout(title_text="Gantt dyagram",
+                      font_size=11,
+                      height=500,
+                      )
+    fig.update_layout(showlegend=False)
+    for i in range(len(dfP.index)):
+        fig.add_hline(y=i, line_width=0.5, line_color="white", opacity=1)
+        i += 2
+    fig.update_xaxes(dtick="M24")
+    fig.update_yaxes(categoryarray=dfP.index)
+    st.plotly_chart(fig, use_container_width=True)
 
 # ------------------------------------------------
 
