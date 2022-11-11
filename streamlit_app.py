@@ -54,7 +54,7 @@ else:
                       y=dfP.index,
                       color=dfP.index)
     fig.update_layout(title_text="Gantt dyagram",
-                      font_size=11,
+                      font_size=13,
                       height=500,
                       )
     fig.update_layout(showlegend=False)
