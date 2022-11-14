@@ -46,6 +46,7 @@ if len(user_cat_input) == 1:
     dfP_text = dfP.loc[user_cat_input, :]
     st.subheader(user_cat_input[0])
     st.markdown(dfP_text.Complete_name[0])
+    st.markdown(dfP_text.Website[0])
 
 else:
     dfP = dfP[dfP.index.isin(user_cat_input)]
@@ -53,7 +54,7 @@ else:
     fig = px.timeline(dfP, "Start_Date", "End_Date",
                       y=dfP.index,
                       color=dfP.index)
-    fig.update_layout(title_text="Gantt dyagram",
+    fig.update_layout(  # title_text="Gantt dyagram",
                       font_size=13,
                       height=500,
                       )
@@ -63,6 +64,7 @@ else:
         i += 2
     fig.update_xaxes(dtick="M24")
     fig.update_yaxes(categoryarray=dfP.index)
+    st.subheader('Projects timeline')
     st.plotly_chart(fig, use_container_width=True)
 
 # ------------------------------------------------
