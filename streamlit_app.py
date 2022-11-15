@@ -49,23 +49,25 @@ if len(user_cat_input) == 1:
     st.markdown(dfP_text.Website[0])
 
 else:
-    dfP = dfP[dfP.index.isin(user_cat_input)]
-    dfP = dfP.sort_values(by=['Start_Date'], ascending=False)
-    fig = px.timeline(dfP, "Start_Date", "End_Date",
-                      y=dfP.index,
-                      color=dfP.index)
-    fig.update_layout(  # title_text="Gantt dyagram",
-                      font_size=13,
-                      height=500,
-                      )
-    fig.update_layout(showlegend=False)
-    for i in range(len(dfP.index)):
-        fig.add_hline(y=i, line_width=0.5, line_color="white", opacity=1)
-        i += 2
-    fig.update_xaxes(dtick="M24")
-    fig.update_yaxes(categoryarray=dfP.index)
-    st.subheader('Projects timeline')
-    st.plotly_chart(fig, use_container_width=True)
+    gantt = st.checkbox('Display the timeline as a Gantt diagram')
+    if gantt:
+        dfP = dfP[dfP.index.isin(user_cat_input)]
+        dfP = dfP.sort_values(by=['Start_Date'], ascending=False)
+        fig = px.timeline(dfP, "Start_Date", "End_Date",
+                          y=dfP.index,
+                          color=dfP.index)
+        fig.update_layout(  # title_text="Gantt dyagram",
+                          font_size=13,
+                          height=500,
+                          )
+        fig.update_layout(showlegend=False)
+        for i in range(len(dfP.index)):
+            fig.add_hline(y=i, line_width=0.5, line_color="white", opacity=1)
+            i += 2
+        fig.update_xaxes(dtick="M24")
+        fig.update_yaxes(categoryarray=dfP.index)
+        st.subheader('Projects timeline')
+        st.plotly_chart(fig, use_container_width=True)
 
 # ------------------------------------------------
 
